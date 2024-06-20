@@ -1,7 +1,10 @@
 from cryptography.fernet import Fernet
 
-# Use the same key used for encryption
-key = b'your_generated_key_here'  # Replace with your actual key
+# Load the key from the file
+def load_key():
+    return open("secret.key", "rb").read()
+
+key = load_key()
 cipher_suite = Fernet(key)
 
 # Decrypt the text log

